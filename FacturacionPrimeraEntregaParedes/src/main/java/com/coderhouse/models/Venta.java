@@ -34,7 +34,7 @@ public class Venta {
 		super();
 	}
 
-	public Venta(double importe, String sucursal, Producto producto, String cliente) {
+	public Venta(double importe, String sucursal, Producto producto, Cliente cliente) {
 		super();
 		this.importe = importe;
 		this.sucursal = sucursal;
@@ -74,11 +74,11 @@ public class Venta {
 		this.producto = producto;
 	}
 
-	public String getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(String cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
