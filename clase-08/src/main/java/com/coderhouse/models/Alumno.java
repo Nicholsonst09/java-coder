@@ -16,11 +16,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Alumnos")
 public class Alumno {
-	@Id   //Primary Key
+	@Id   //Indica que va a ser la Primary Key de la tabla
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //Indica que va a ser autoincremental
 	private Long id;
 	
-	@Column(name = "nombre")
+	
 	private String nombre;
 	private String apellido;
 	@Column(unique = true, nullable = false)
