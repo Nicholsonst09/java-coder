@@ -90,11 +90,11 @@ public class DaoFactory {
 		System.out.println(curso.toString());
 		System.out.println(alumno.toString());
 
-		if(!curso.getAlumnos().contains(alumno)) {
-			curso.getAlumnos().add(alumno);
+		if(!curso.getAlumnos().contains(alumno)) { //verifica si el alumno ya está inscripto en el curso, y sino lo agrega a la lista de alumnos del curso
+			curso.getAlumnos().add(alumno); 
 		}
 		
-		if(!alumno.getCursos().contains(curso)) {
+		if(!alumno.getCursos().contains(curso)) { //verifica si el curso ya está en la lista de cursos del alumno, y sino lo agrega a la lista cursos del alumno
 			alumno.getCursos().add(curso);
 		}		
 		

@@ -90,12 +90,7 @@ public class Curso {
 
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", nombre=" + nombre + ", alumnos=" + alumnos + ", categoria=" + categoria + "]";
-	}
-
-
-	
-	
-	
+		return "Curso [id=" + id + ", nombre=" + nombre + ", categoria=" + categoria + "]";
+	}	
 
 }

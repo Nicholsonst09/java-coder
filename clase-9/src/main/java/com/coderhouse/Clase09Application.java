@@ -27,7 +27,7 @@ public class Clase09Application implements CommandLineRunner{
 	public void run(String... args) throws Exception{
 		try {
 			Categoria cat1 = new Categoria("Programacion FrontEnd");
-			Categoria cat2 = new Categoria("Programacion BackEnd");			
+			Categoria cat2 = new Categoria("Programacion BackEnd");
 			
 			Curso curso1 = new Curso("HTML", cat1);
 			Curso curso2 = new Curso("Rust", cat2);
@@ -39,7 +39,6 @@ public class Clase09Application implements CommandLineRunner{
 			Alumno alumno3 = new Alumno("Peter", "Knofer", 89987313, "L5432614");
 			
 			
-			/*
 			dao.createCategoria(cat1);
 			dao.createCategoria(cat2);
 			
@@ -50,7 +49,18 @@ public class Clase09Application implements CommandLineRunner{
 			dao.createCurso(curso1);
 			dao.createCurso(curso2);
 			dao.createCurso(curso3);	
-			 */
+			
+			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno1.getId());
+			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno2.getId());
+			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno3.getId());
+			
+			dao.inscribirAlumnoEnCurso(curso2.getId(), alumno2.getId());
+			dao.inscribirAlumnoEnCurso(curso2.getId(), alumno3.getId());
+			
+			dao.inscribirAlumnoEnCurso(curso3.getId(), alumno2.getId());
+		
+//			dao.inscribirAlumnoEnCurso(curso4.getId(), alumno1.getId());
+//			dao.inscribirAlumnoEnCurso(curso5.getId(), alumno3.getId());
 			
 			System.out.println("Mostrar lista de Categorias");
 			List<Categoria> categorias = dao.getAllCategorias();
@@ -67,14 +77,15 @@ public class Clase09Application implements CommandLineRunner{
 			alumnos.forEach(alumno -> System.out.println(alumno.toString()));		
 			System.out.println("----------------");			
 			
-//			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno1.getId());
-//			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno2.getId());
-//			dao.inscribirAlumnoEnCurso(curso1.getId(), alumno3.getId());
-//
-//			dao.inscribirAlumnoEnCurso(curso2.getId(), alumno2.getId());
-//			dao.inscribirAlumnoEnCurso(curso2.getId(), alumno3.getId());
-//
-//			dao.inscribirAlumnoEnCurso(curso3.getId(), alumno2.getId());
+			
+			System.out.println("Lista de Cursos con alumnos inscriptos:");
+			cursos = dao.getAllCursos();
+			cursos.forEach(curso -> {
+				System.out.println("Curso: " + curso.getNombre());
+				curso.getAlumnos().forEach(alumno -> 
+						System.out.println("     Alumno Inscripto: " + alumno.getNombre() + " " + alumno.getApellido()));				
+			});
+			System.out.println("---------------");
 			
 		} catch (Exception e) { 
 			e.printStackTrace(System.err);

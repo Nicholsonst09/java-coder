@@ -31,7 +31,8 @@ public class Alumno {
 	
 	@ManyToMany(
 			mappedBy = "alumnos",
-			fetch = FetchType.EAGER) 	
+			fetch = FetchType.EAGER
+			) 	
 	private List<Curso> cursos = new ArrayList<>();
 	
 	
