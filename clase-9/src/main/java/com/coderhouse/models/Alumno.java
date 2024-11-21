@@ -18,40 +18,38 @@ import jakarta.persistence.Table;
 public class Alumno {
 	@Id   //Indica que va a ser la Primary Key de la tabla
 	@GeneratedValue(strategy = GenerationType.IDENTITY)  //Indica que va a ser autoincremental
-	private Long id;
-	
-	
+	private Long id;	
 	private String nombre;
 	private String apellido;
+	
 	@Column(unique = true, nullable = false)
-	private String dni;
+	private int dni;
+	
 	@Column(unique = true, nullable = false)
-	private String legajo;
+	private  String legajo;
 	
 	
-	@ManyToMany(mappedBy = "alumnos",fetch = FetchType.EAGER) 
-	
+	@ManyToMany(
+			mappedBy = "alumnos",
+			fetch = FetchType.EAGER) 	
 	private List<Curso> cursos = new ArrayList<>();
 	
 	
 	private LocalDateTime createdAt = LocalDateTime.now();
-
 	
 
 	public Alumno() {
 		super();
 	}
+ 
 
-
-	public Alumno(String nombre, String apellido, String dni, String legajo) {
+	public Alumno(String nombre, String apellido, int dni, String legajo) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.legajo = legajo;
 	}
-
-
 
 
 	public Long getId() {
@@ -84,12 +82,12 @@ public class Alumno {
 	}
 
 
-	public String getDni() {
+	public int getDni() {
 		return dni;
 	}
 
 
-	public void setDni(String dni) {
+	public void setDni(int dni) {
 		this.dni = dni;
 	}
 
@@ -129,8 +127,6 @@ public class Alumno {
 		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", legajo="
 				+ legajo + ", cursos=" + cursos + ", createdAt=" + createdAt + "]";
 	}
-	
-	
 	
 	
 
