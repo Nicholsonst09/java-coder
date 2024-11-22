@@ -29,7 +29,6 @@ public class Cliente {
 	@Column(name = "Cuit", unique = true, nullable = false)
 	private String cuit;
 	
-	
 
 	public Cliente() {
 		super();
