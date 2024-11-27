@@ -1,4 +1,4 @@
-package com.coderhouse.repositories;
+ package com.coderhouse.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
